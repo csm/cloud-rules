@@ -1,0 +1,7 @@
+{:deps {org.clojure/clojure {:mvn/version "1.10.3"}
+        com.sun.mail/jakarta.mail {:mvn/version "2.0.1"}
+        com.datomic/client-cloud {:mvn/version "0.8.113"}
+        com.datomic/ion {:mvn/version "0.9.50"}
+        com.cognitect/anomalies {:mvn/version "0.1.12"}
+        software.amazon.awssdk/ssm {:mvn/version "2.17.9"}}
+ :mvn/repos {"datomic-cloud" {:url "s3://datomic-releases-1fc2183a/maven/releases"}}}

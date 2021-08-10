@@ -1,0 +1,4 @@
+{:lambdas {:run
+           {:fn cloud.rules/run
+            :description "Run the mail processing procedure"}}
+ :app-name "cloud-rules"}
