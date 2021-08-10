@@ -1,6 +1,14 @@
 (ns cloud.rules.schema)
 
-(def schema
+(def target-schema 1)
+
+(def schema-0
+  [{:db/ident :schema/version
+    :db/valueType :db.type/long
+    :db/cardinality :db.cardinality/one
+    :db/doc "The current schema version in this database."}])
+
+(def schema-1
   [{:db/ident :account/id
     :db/valueType :db.type/uuid
     :db/unique :db.unique/identity
@@ -27,10 +35,25 @@
     :db/cardinality :db.cardinality/one
     :db/doc "The account password (encrypted)."}
 
+   {:db/ident :account/hostname
+    :db/valueType :db.type/string
+    :db/cardinality :db.cardinality/one
+    :db/doc "The IMAP mail host (encrypted)."}
+
+   {:db/ident :account/port
+    :db/valueType :db.type/string
+    :db/cardinality :db.cardinality/one
+    :db/doc "The IMAP port (encrypted)."}
+
    {:db/ident :account/inbox
     :db/valueType :db.type/string
     :db/cardinality :db.cardinality/one
     :db/doc "The inbox of this account (the mailbox to run rules on)."}
+
+   {:db/ident :account/last-uid
+    :db/valueType :db.type/long
+    :db/cardinality :db.cardinality/one
+    :db/doc "The last message UID processed for this account."}
 
    {:db/ident :account/rules
     :db/valueType :db.type/ref
@@ -42,7 +65,7 @@
    [:db/add "ruleAction/delete" :db/ident :ruleAction/delete]
 
    {:db/ident :rule/action
-    :db/type :db.type/ref
+    :db/valueType :db.type/ref
     :db/cardinality :db.cardinality/one
     :db/doc "The rule action. One of :ruleAction/move or :ruleAction/delete."}
 
@@ -52,12 +75,12 @@
    [:db/add "ruleOp/endsWith" :db/ident :ruleOp/endsWith]
 
    {:db/ident :rule/operation
-    :db/type :db.type/ref
+    :db/valueType :db.type/ref
     :db/cardinality :db.cardinality/one
     :db/doc "The rule operation."}
 
    {:db/ident :rule/ignoreCase
-    :db/type :db.type/boolean
+    :db/valueType :db.type/boolean
     :db/cardinality :db.cardinality/one
     :db/doc "Whether to run the rule case-insensitively."}
 
@@ -66,17 +89,17 @@
    [:db/add "ruleField/recipients" :db/ident :ruleField/recipients]
 
    {:db/ident :rule/field
-    :db/type :db.type/ref
+    :db/valueType :db.type/ref
     :db/cardinality :db.cardinality/one
     :db/doc "The field to match."}
 
    {:db/ident :rule/pattern
-    :db/type :db.type/string
+    :db/valueType :db.type/string
     :db/cardinality :db.cardinality/one
     :db/doc "The pattern to match."}
 
    {:db/ident :rule/target
-    :db/type :db.type/string
+    :db/valueType :db.type/string
     :db/cardinality :db.cardinality/one
     :db/doc "The target mailbox name, if operation is move."}])
 

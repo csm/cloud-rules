@@ -1,0 +1,4 @@
+{:server-type :ion
+ :region :us-west-2
+ :system "cloud-rules"
+ :endpoint "TODO"}

@@ -3,5 +3,7 @@
         com.datomic/client-cloud {:mvn/version "0.8.113"}
         com.datomic/ion {:mvn/version "0.9.50"}
         com.cognitect/anomalies {:mvn/version "0.1.12"}
-        software.amazon.awssdk/ssm {:mvn/version "2.17.9"}}
- :mvn/repos {"datomic-cloud" {:url "s3://datomic-releases-1fc2183a/maven/releases"}}}
+        software.amazon.awssdk/ssm {:mvn/version "2.17.9"}
+        buddy/buddy-core {:mvn/version "1.10.1"}}
+ :mvn/repos {"datomic-cloud" {:url "s3://datomic-releases-1fc2183a/maven/releases"}}
+ :aliases {:dev {:extra-deps {com.datomic/dev-local {:mvn/version "0.9.235"}}}}}
